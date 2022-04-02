@@ -31,11 +31,10 @@ def on_mouse_down(pos):
     global next_dot
     global lines
     print(pos)
-    print(next_dot)
     if dots[next_dot].collidepoint(pos):
         if next_dot:
             lines.append((dots[next_dot - 1].pos, dots[next_dot].pos))
-            next_dot = next_dot + 1
+        next_dot = next_dot + 1
     else:
         lines = []
         next_dot = 0
