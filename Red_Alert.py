@@ -1,9 +1,6 @@
-# author : Pranay
-# Purpose:
-
 import random
 
-FONT_COLOUR = (255, 255, 255)
+FONT_COLOR = (255, 255, 255)
 WIDTH = 800
 HEIGHT = 600
 CENTER_X = WIDTH / 2
@@ -30,7 +27,6 @@ def draw():
     else:
         for star in stars:
             star.draw
-
 def update():
     global stars
     if len(stars) == 0:
