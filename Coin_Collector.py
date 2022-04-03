@@ -1,3 +1,5 @@
+# Purpose: To create a game with random coins and am actor , fox to collect
+
 from random import randint
 WIDTH = 400
 HEIGHT = 400
