@@ -1,5 +1,5 @@
 # Purpose: To create a game with random coins and am actor , fox to collect
-
+# author : Pranay
 from random import randint
 WIDTH = 400
 HEIGHT = 400
