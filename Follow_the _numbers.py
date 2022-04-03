@@ -1,5 +1,5 @@
 from random import randint
-
+import pgzrun
 from pgzero.actor import Actor
 
 WIDTH = 400
@@ -39,3 +39,4 @@ def on_mouse_down(pos):
         lines = []
         next_dot = 0
 
+pgzrun.go()

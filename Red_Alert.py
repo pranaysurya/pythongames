@@ -1,4 +1,5 @@
 import random
+import pgzrun
 
 FONT_COLOR = (255, 255, 255)
 WIDTH = 800
@@ -53,3 +54,4 @@ def create_stars(colors_to_create):
         new_stars.append(star)
     return new_stars
 
+pgzrun.go()
