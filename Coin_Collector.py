@@ -10,8 +10,7 @@ fox = Actor("fox")
 fox.pos = 100, 100
 
 coin = Actor("coin")
-coin.pos = 200, 200
-
+coin.pos = 200, 2
 def draw():
    screen.fill("green")
    fox.draw()
