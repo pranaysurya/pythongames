@@ -1,5 +1,5 @@
 from random import randint
-
+import pgzrun
 from pgzero.actor import Actor
 
 apple = Actor("apple")
@@ -18,3 +18,5 @@ def on_mouse_down(pos):
     else:
         print("You missed!")
         quit()
+
+pgzrun.go()
