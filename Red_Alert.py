@@ -1,5 +1,6 @@
 import random
 import pgzrun
+from pgzero.actor import Actor
 
 FONT_COLOR = (255, 255, 255)
 WIDTH = 800
@@ -20,14 +21,15 @@ animations = []
 def draw():
     global stars, current_level, game_over, game_complete
     screen.clear()
-    screen.blit("space",(0, 0))
+    screen.blit("space", (10, 10))
     if game_over:
         display_message("GAME OVER!", "Try again.")
     elif game_complete:
         display_message("YOU WON!", "Well done.")
     else:
         for star in stars:
-            star.draw
+            star.draw()
+
 def update():
     global stars
     if len(stars) == 0:
@@ -48,9 +50,9 @@ def get_colors_to_create(number_of_extra_stars):
     return colors_to_create
 
 def create_stars(colors_to_create):
-    new_stars  = []
+    new_stars = []
     for color in colors_to_create:
-        star = Actor(color + "-star")
+        star = Actor(color + "_star")
         new_stars.append(star)
     return new_stars
 
@@ -99,7 +101,7 @@ def stop_animations(animations_to_stop):
 
 def display_message(heading_text, sub_heading_text):
     screen.draw.text(heading_text, fontsize=60, center=CENTER, color=FONT_COLOR)
-    screen.draw.text(sub_heading_text, fontsize=30, center=(CENTER_X, CENTER_Y + 30), color=FONT_COLOR)
+    screen.draw.text(sub_heading_text, fontsize=30, center=(CENTER_X,CENTER_Y + 30), color=FONT_COLOR)
 
 
 pgzrun.go()

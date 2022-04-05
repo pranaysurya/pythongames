@@ -2,7 +2,7 @@ from random import randint
 import pgzrun
 from pgzero.actor import Actor
 
-apple = Actor("apple")
+apple = Actor("green_star")
 def draw():
     screen.clear()
     apple.draw()
