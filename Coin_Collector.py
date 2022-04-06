@@ -3,6 +3,7 @@
 from random import randint
 import pgzrun
 
+print(" Player 1 is the fox : Use WASD to move. Player 2 is the unicorn: Use arrow keys to move.")
 player1 = input("Enter player 1 name : ")
 player2 = input("Enter player 2 name : ")
 
@@ -12,7 +13,7 @@ score_player1 = 0
 score_player2 = 0
 game_over = False
 
-fox2 = Actor("fox2")
+fox2 = Actor("unicorn")
 fox2.pos = 100, 100
 fox = Actor("fox")
 fox.pos = 100, 100
@@ -28,15 +29,15 @@ def draw():
    screen.draw.text("Score of " + player2 + " " + str(score_player2), color="white", topleft=(1110, 10))
 
    if game_over:
-      screen.fill("green")
-      screen.draw.text("Final Score of " + player1 + ": " + str(score_player1), topleft=(10, 10), fontsize=60)
-      screen.draw.text("Final Score of " + player2 + ": " + str(score_player2), topleft=(745, 10), fontsize=60)
+      screen.fill("blue")
+      screen.draw.text("Final Score of " + player1 + ": " + str(score_player1), topleft=(10, 10), fontsize=60, color="orange")
+      screen.draw.text("Final Score of " + player2 + ": " + str(score_player2), topleft=(745, 10), fontsize=60, color="orange")
       if score_player1 == score_player2:
-         screen.draw.text("It's a draw!", topleft=(500, 250), fontsize=60, color="red")
+         screen.draw.text("It's a draw!", topleft=(500, 250), fontsize=60, color="orange")
       elif score_player1 >= score_player2:
-         screen.draw.text("Hooray! Player 1 WINS!", topleft=(400, 250), fontsize=60, color="red")
+         screen.draw.text("Hooray! " + player1 + " WINS!", topleft=(400, 250), fontsize=60, color="orange")
       elif score_player2 >= score_player1:
-         screen.draw.text("Hooray! Player 2 WINS!", topleft=(400, 250), fontsize=60, color="red")
+         screen.draw.text("Hooray! " + player2 + " WINS!", topleft=(400, 250), fontsize=60, color="orange")
 
 
 def place_coin():

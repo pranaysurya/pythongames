@@ -2,7 +2,7 @@ from random import randint
 import pgzrun
 from pgzero.actor import Actor
 
-apple = Actor("green_star")
+apple = Actor("mango")
 def draw():
     screen.clear()
     apple.draw()
@@ -13,10 +13,10 @@ def place_apple():
 
 def on_mouse_down(pos):
     if apple.collidepoint(pos):
-        print("Good Shot!")
+        print("Good Shot! Keep it up!")
         place_apple()
     else:
-        print("You missed!")
+        print("You missed! Nice game!")
         quit()
 
 pgzrun.go()
