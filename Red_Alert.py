@@ -8,7 +8,7 @@ HEIGHT = 600
 CENTER_X = WIDTH / 2
 CENTER_Y = HEIGHT / 2
 CENTER = (CENTER_X, CENTER_Y)
-FINAL_LEVEL = 6
+FINAL_LEVEL = 9
 START_SPEED = 10
 COLORS = ["green", "blue"]
 
@@ -25,7 +25,7 @@ def draw():
     if game_over:
         display_message("GAME OVER!", "Try again.")
     elif game_complete:
-        display_message("YOU WON!", "Well done.")
+        display_message("YOU WON!", "Well done. Credits Pranay & Rayudu")
     else:
         for star in stars:
             star.draw()
