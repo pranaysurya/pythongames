@@ -1,26 +1,30 @@
 # Purpose: To create a game with random coins and am actor , fox to collect
 # author : Pranay
-from random import randint
-import pgzrun
 
-print(" Player 1 is the fox : Use WASD to move. Player 2 is the unicorn: Use arrow keys to move.")
+from random import randint
+
 player1 = input("Enter player 1 name : ")
 player2 = input("Enter player 2 name : ")
+print(" Player 1 is the fox : Use WASD to move. Player 2 is the wolf: Use arrow keys to move.")
 
-WIDTH = 1300
-HEIGHT = 500
+import pgzrun
+import pygame
+WIDTH = 1366
+HEIGHT = 768
 score_player1 = 0
 score_player2 = 0
 game_over = False
 
-fox2 = Actor("unicorn")
+fox2 = Actor("wolf")
 fox2.pos = 100, 100
 fox = Actor("fox")
 fox.pos = 100, 100
 
 coin = Actor("coin")
 coin.pos = 200, 2
+
 def draw():
+   screen.surface = pygame.display.set_mode((WIDTH,HEIGHT), pygame.FULLSCREEN)
    screen.fill("black")
    fox.draw()
    fox2.draw()
@@ -39,6 +43,7 @@ def draw():
       elif score_player2 >= score_player1:
          screen.draw.text("Hooray! " + player2 + " WINS!", topleft=(400, 250), fontsize=60, color="orange")
 
+      screen.draw.text("Press q to Quit", topleft=(450, 300), fontsize=60, color="orange")
 
 def place_coin():
    coin.x = randint(20, (WIDTH - 20))
@@ -54,6 +59,10 @@ def time_up():
 def update():
    global score_player1
    global score_player2
+
+   if keyboard.q:
+      pygame.quit()
+      quit()
 
    if keyboard.left:
       fox2.x = fox2.x - 4
