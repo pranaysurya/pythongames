@@ -5,10 +5,15 @@ from random import randint
 
 player1 = input("Enter player 1 name : ")
 player2 = input("Enter player 2 name : ")
-print(" Player 1 is the fox : Use WASD to move. Player 2 is the wolf: Use arrow keys to move.")
+print(player1 +" is the fox : Use WASD to move.")
+print(player2 +" is the wolf: Use ARROW keys to move.")
+print("Press q to quit!")
+print("-----------------------------------------------")
 
+#moved this 2 imports here to avoid box popup before entering the names
 import pgzrun
 import pygame
+
 WIDTH = 1366
 HEIGHT = 768
 score_player1 = 0
@@ -31,6 +36,7 @@ def draw():
    coin.draw()
    screen.draw.text("Score of " + player1 + " "+ str(score_player1), color="white", topleft=(10, 10))
    screen.draw.text("Score of " + player2 + " " + str(score_player2), color="white", topleft=(1110, 10))
+   screen.draw.text("Press q to quit!",  color="white", topleft=( int(WIDTH/2), HEIGHT-50), fontsize=20)
 
    if game_over:
       screen.fill("blue")
