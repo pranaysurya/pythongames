@@ -2,4 +2,4 @@
 Grade 5
 McBride Public School
 Canada
-Learning pygame abd build games using python
+Learning pygame & build games using python
