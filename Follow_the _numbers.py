@@ -30,7 +30,6 @@ def draw():
 def on_mouse_down(pos):
     global next_dot
     global lines
-    print(pos)
     if dots[next_dot].collidepoint(pos):
         if next_dot:
             lines.append((dots[next_dot - 1].pos, dots[next_dot].pos))
@@ -38,5 +37,6 @@ def on_mouse_down(pos):
     else:
         lines = []
         next_dot = 0
+        quit()
 
 pgzrun.go()

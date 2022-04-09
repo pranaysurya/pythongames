@@ -5,8 +5,8 @@ from random import randint
 
 player1 = input("Enter player 1 name : ")
 player2 = input("Enter player 2 name : ")
-print(player1 +" is the fox : Use WASD to move.")
-print(player2 +" is the wolf: Use ARROW keys to move.")
+print(player1 + " is the fox : Use WASD to move.")
+print(player2 + " is the wolf: Use ARROW keys to move.")
 print("Press q to quit!")
 print("-----------------------------------------------")
 
@@ -29,12 +29,12 @@ coin = Actor("coin")
 coin.pos = 200, 2
 
 def draw():
-   screen.surface = pygame.display.set_mode((WIDTH,HEIGHT), pygame.FULLSCREEN)
+   screen.surface = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
    screen.fill("black")
    fox.draw()
    fox2.draw()
    coin.draw()
-   screen.draw.text("Score of " + player1 + " "+ str(score_player1), color="white", topleft=(10, 10))
+   screen.draw.text("Score of " + player1 + " " + str(score_player1), color="white", topleft=(10, 10))
    screen.draw.text("Score of " + player2 + " " + str(score_player2), color="white", topleft=(1110, 10))
    screen.draw.text("Press q to quit!",  color="white", topleft=( int(WIDTH/2), HEIGHT-50), fontsize=20)
 
@@ -60,8 +60,6 @@ def time_up():
    global game_over
    game_over = True
 
-
-
 def update():
    global score_player1
    global score_player2
@@ -79,7 +77,6 @@ def update():
    elif keyboard.down:
       fox2.y = fox2.y + 4
 
-
    if keyboard.a:
       fox.x = fox.x - 4
    elif keyboard.d:
@@ -88,8 +85,6 @@ def update():
       fox.y = fox.y - 4
    elif keyboard.s:
       fox.y = fox.y + 4
-
-
 
    coin_collected_by_player1 = fox.colliderect(coin)
    coin_collected_by_player2 = fox2.colliderect(coin)
@@ -102,7 +97,9 @@ def update():
       score_player2 = score_player2 + 10
       place_coin()
 
+
 clock.schedule(time_up, 30.0)
 place_coin()
+
 
 pgzrun.go()
