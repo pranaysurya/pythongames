@@ -27,7 +27,18 @@ q1 = ["What  is the capital of France?",
       "London", "Paris", "Berlin", "Tokyo", 2]
 
 q2 = ["What  is the capital of Germany?",
-      "London", "Washington D.C.", "Rome", "Berlin", 2]
+      "Kyiv", "Washington D.C.", "Rome", "Berlin", 4]
+
+q3 = ["What  is the capital of Australia?",
+      "Canberra", "Sydney", "Kingston", "Havana", 1]
+
+q4 = ["What  is the capital of the Netherlands?",
+      "Warsaw", "Budapest", "Amsterdam", "Tirana", 3]
+
+questions = [q1, q2, q3, q4]
+
+question = questions.pop(0)
+
 
 
 def draw():
@@ -40,6 +51,8 @@ def draw():
         screen.draw.filled_rect(box, "orange")
     #screen.draw.filled_rect(main_box, "sky blue")
     screen.draw.text("Press q to quit!", color="white", topleft=(int(WIDTH / 2 - 80), HEIGHT - 50), fontsize=30)
+
+    screen.draw.textbox(str(time_left), timer_box, color=("black"))
 
 
 def game_over():
