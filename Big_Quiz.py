@@ -22,7 +22,32 @@ answer_boxes = [answer_box1, answer_box2, answer_box3, answer_box4]
 score = 0
 time_left = 10
 
+#Task: Keep questions in a file and read them and make questions array.
+# step 1: create a text file with questions.txt , answers and correct answer 5 columns
+# step 2: Read the file
+# step 3: loop the file contents and create questions array. 2 dimensional array
+# step 4: use that questions array in your program.
+# Refer to https://www.w3schools.com/python/python_file_handling.asp
+# https://www.w3schools.com/python/python_strings.asp
+# hint: you might have to use forloop and string split and arrays
 
+questions = []
+
+def prep_questions(file_input):
+    global questions
+    f = open(file_input)
+    for current_line in f:
+        #print(current_line)
+        #create a list of current question with current line
+        q = current_line.replace('\n', '').split(",")
+        #print(type(q))
+        #creating a parent or global questions , list of lists
+        questions.append(q)
+
+
+prep_questions("Quiz.txt")
+
+''' Comments
 q1 = ["What  is the capital of France?",
       "London", "Paris", "Berlin", "Tokyo", 2]
 
@@ -37,14 +62,15 @@ q4 = ["What  is the capital of the Netherlands?",
 
 q5 = ["What is the capital Egypt?",
       "Cairo", "Alexandria", "Luxor", "Giza", 1]
-questions = [q1, q2, q3, q4, q5]
+questions2 = [q1, q2, q3, q4, q5]
 
-
+print(questions)
+current_question = questions.pop(0)
+print(current_question)
+print(current_question[0])
+'''
 
 current_question = questions.pop(0)
-
-
-
 def draw():
     screen.surface = pygame.display.set_mode((WIDTH, HEIGHT), pygame.FULLSCREEN)
     screen.fill("dim gray")
@@ -56,12 +82,13 @@ def draw():
     #screen.draw.filled_rect(main_box, "sky blue")
     screen.draw.text("Press q to quit!", color="white", topleft=(int(WIDTH / 2 - 80), HEIGHT - 50), fontsize=30)
 
-    screen.draw.textbox(str(time_left), timer_box, color=("black"))
-    screen.draw.textbox(current_question[0], main_box, color=("black"))
+    screen.draw.textbox(str(time_left), timer_box, color="black" )
+    screen.draw.textbox(current_question[0], main_box, color="black" )
 
     index = 1
     for box in answer_boxes:
-        screen.draw.textbox(current_question[index], box, color=("black"))
+        #strip remove spaces in answers and ends, just in case
+        screen.draw.textbox( current_question[index].strip(), box, color="black" )
         index = index + 1
 
 
@@ -93,7 +120,7 @@ def on_mouse_down(pos):
     for box in answer_boxes:
         if box.collidepoint(pos):
             print("Clicked on answer " + str(index))
-            if index == current_question[5]:
+            if index == int(current_question[5]):
                 print("You got it correct!")
                 correct_answer()
             else:
