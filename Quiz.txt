@@ -1,3 +1,4 @@
+What is 1 plus 2?,3,4,5,6,1
 What is the capital of France?,London,Paris,Berlin,Tokyo,2
 What is the capital of Germany?,Kyiv,Washington D.C.,Rome,Berlin,4
 What is the capital of Australia?,Canberra,Sydney,Kingston,Havana,1
