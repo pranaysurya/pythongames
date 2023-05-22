@@ -23,7 +23,7 @@ game_over = False
 fox2 = Actor("wolf")
 fox2.pos = 100, 100
 fox = Actor("fox")
-fox.pos = 100, 100
+fox.pos = 100, 250
 
 coin = Actor("coin")
 coin.pos = 200, 2
@@ -34,8 +34,8 @@ def draw():
    fox.draw()
    fox2.draw()
    coin.draw()
-   screen.draw.text("Score of " + player1 + " " + str(score_player1), color="white", topleft=(10, 10))
-   screen.draw.text("Score of " + player2 + " " + str(score_player2), color="white", topleft=(1110, 10))
+   screen.draw.text("Score of " + player1 + ": " + str(score_player1), color="white", topleft=(10, 10))
+   screen.draw.text("Score of " + player2 + ": " + str(score_player2), color="white", topleft=(1110, 10))
    screen.draw.text("Press q to quit!",  color="white", topleft=( int(WIDTH/2), HEIGHT-50), fontsize=20)
 
    if game_over:
@@ -76,6 +76,19 @@ def update():
       fox2.y = fox2.y - 4
    elif keyboard.down:
       fox2.y = fox2.y + 4
+   if keyboard.left and keyboard.up:
+      fox2.x = fox2.x - 2
+      fox2.y = fox2.y - 2
+   elif keyboard.right and keyboard.up:
+      fox2.x = fox2.x + 2
+      fox2.y = fox2.y - 2
+   if keyboard.left and keyboard.down:
+      fox2.x = fox2.x - 2
+      fox2.y = fox2.y + 2
+   elif keyboard.right and keyboard.down:
+      fox2.x = fox2.x + 2
+      fox2.y = fox2.y + 2
+
 
    if keyboard.a:
       fox.x = fox.x - 4
@@ -85,6 +98,18 @@ def update():
       fox.y = fox.y - 4
    elif keyboard.s:
       fox.y = fox.y + 4
+   if keyboard.a and keyboard.w:
+      fox.x = fox.x - 2
+      fox.y = fox.y - 2
+   elif keyboard.d and keyboard.w:
+      fox.x = fox.x + 2
+      fox.y = fox.y - 2
+   if keyboard.a and keyboard.s:
+      fox.x = fox.x - 2
+      fox.y = fox.y + 2
+   elif keyboard.d and keyboard.s:
+      fox.x = fox.x + 2
+      fox.y = fox.y + 2
 
    coin_collected_by_player1 = fox.colliderect(coin)
    coin_collected_by_player2 = fox2.colliderect(coin)

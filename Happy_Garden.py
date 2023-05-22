@@ -1,4 +1,7 @@
 from random import randint
+import pgzrun
+import pygame
+
 import time
 
 WIDTH = 800
@@ -35,11 +38,15 @@ def draw():
         for fangflower in fangflower_list:
             fangflower.draw()
         time_elapsed = int(time.time() - start_time)
-        screen.draw.text("Garden happy for: " +)
+        screen.draw.text("Garden happy for: " +
+                         str(time_elapsed) + " seconds",
+                         topleft=(10, 10), color="black"
+                    )
+    
 
 
-
-
+pgzrun.go()
+ 
 
 
 
